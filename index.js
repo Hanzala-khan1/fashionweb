@@ -9,7 +9,10 @@ const cookieParser =require("cookie-parser")
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}))
-app.use(cors());
+app.use(cors({ 
+                credentials: true,
+              allowedHeaders: ['Content-Type', 'Authorization'],
+             }));
   app.use(cookieParser());
 
   app.use('/profile', express.static('./upload/images'));
